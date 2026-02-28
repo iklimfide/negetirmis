@@ -20,11 +20,13 @@
   }
 
   function init() {
-    if (typeof SUPABASE_URL === "undefined" || typeof SUPABASE_ANON_KEY === "undefined") {
-      console.error("config.js eksik. Önce: python generate_config.py");
+    const url = window.SUPABASE_URL;
+    const key = window.SUPABASE_ANON_KEY;
+    if (!url || !key) {
+      console.error("Supabase URL ve ANON_KEY tanımlı değil. Vercel’de NEXT_PUBLIC_SUPABASE_URL ve NEXT_PUBLIC_SUPABASE_ANON_KEY ortam değişkenlerini ekleyin.");
       return;
     }
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabase = window.supabase.createClient(url, key);
 
     const tarihEl = document.getElementById("tarih");
     const miktarEl = document.getElementById("miktar");
