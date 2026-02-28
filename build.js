@@ -34,4 +34,13 @@ const distDir = path.join(root, "dist");
 if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true });
 fs.writeFileSync(path.join(distDir, "index.html"), html);
 fs.copyFileSync(path.join(root, "script.js"), path.join(distDir, "script.js"));
+if (fs.existsSync(path.join(root, "robots.txt"))) {
+  fs.copyFileSync(path.join(root, "robots.txt"), path.join(distDir, "robots.txt"));
+}
+if (fs.existsSync(path.join(root, "sitemap.xml"))) {
+  fs.copyFileSync(path.join(root, "sitemap.xml"), path.join(distDir, "sitemap.xml"));
+}
+if (fs.existsSync(path.join(root, "favicon.png"))) {
+  fs.copyFileSync(path.join(root, "favicon.png"), path.join(distDir, "favicon.png"));
+}
 console.log("Supabase config injected → dist/");
