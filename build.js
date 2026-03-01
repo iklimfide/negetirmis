@@ -43,4 +43,14 @@ if (fs.existsSync(path.join(root, "sitemap.xml"))) {
 if (fs.existsSync(path.join(root, "favicon.png"))) {
   fs.copyFileSync(path.join(root, "favicon.png"), path.join(distDir, "favicon.png"));
 }
+const assetsDir = path.join(distDir, "assets");
+if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir, { recursive: true });
+if (fs.existsSync(path.join(root, "assets", "og-share-v2.png"))) {
+  fs.copyFileSync(path.join(root, "assets", "og-share-v2.png"), path.join(assetsDir, "og-share-v2.png"));
+}
+for (const f of ["kullanim-kosullari.html", "kunye.html", "yardim.html", "iletisim.html"]) {
+  if (fs.existsSync(path.join(root, f))) {
+    fs.copyFileSync(path.join(root, f), path.join(distDir, f));
+  }
+}
 console.log("Supabase config injected → dist/");

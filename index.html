@@ -3,148 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1 Milyon TL Bugün Ne Getirmiş? | negetirmis.com</title>
-    <meta name="description" content="Geçmişte yaptığınız 1 Milyon TL'lik yatırımın bugün dolar, altın, euro ve mevduat faizi karşılığını anlık hesaplayın. Enflasyon ve yatırım arşivi.">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <title>TL Bugün Ne Getirmiş? | negetirmis.com</title>
+    <meta name="description" content="Farklı finansal enstrümanlara geçmişte yapılan yatırımların bugünkü değerini saniyeler içinde hesaplayın. Altın, döviz ve mevduat faizi verileriyle geçmişten bugüne kazanç analizi.">
     <meta name="keywords" content="yatırım hesaplama, 1 milyon tl ne oldu, altın hesaplama, dolar arşivi, mevduat faizi hesapla, geçmiş döviz kurları">
     <link rel="canonical" href="https://negetirmis.com">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
-    <meta property="og:title" content="1 Milyon TL Bugün Ne Getirmiş? | negetirmis.com">
-    <meta property="og:description" content="Geçmişte yaptığınız 1 Milyon TL'lik yatırımın bugün dolar, altın, euro ve mevduat faizi karşılığını anlık hesaplayın. Enflasyon ve yatırım arşivi.">
-    <meta property="og:image" content="https://negetirmis.com/og-image.png">
+    <meta property="og:title" content="TL Bugün Ne Getirmiş? | negetirmis.com">
+    <meta property="og:description" content="Farklı finansal enstrümanlara geçmişte yapılan yatırımların bugünkü değerini saniyeler içinde hesaplayın. Altın, döviz ve mevduat faizi verileriyle geçmişten bugüne kazanç analizi.">
+    <meta property="og:image" content="https://negetirmis.com/assets/og-share-v2.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:url" content="https://negetirmis.com">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="negetirmis.com">
     <meta property="og:locale" content="tr_TR">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="1 Milyon TL Bugün Ne Getirmiş? | negetirmis.com">
-    <meta name="twitter:description" content="Geçmişte yaptığınız 1 Milyon TL'lik yatırımın bugün dolar, altın, euro ve mevduat faizi karşılığını anlık hesaplayın. Enflasyon ve yatırım arşivi.">
-    <meta name="twitter:image" content="https://negetirmis.com/og-image.png">
+    <meta name="twitter:title" content="Paranız Zamanda Yolculuk Yapsaydı Ne Getirmişti?">
+    <meta name="twitter:description" content="Farklı finansal enstrümanlara geçmişte yapılan yatırımların bugünkü değerini saniyeler içinde hesaplayın. Altın, döviz ve mevduat faizi verileriyle geçmişten bugüne kazanç analizi.">
+    <meta name="twitter:image" content="https://negetirmis.com/assets/og-share-v2.png">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "negetirmis.com",
+      "url": "https://negetirmis.com",
+      "description": "Geçmişte yaptığınız TL yatırımının bugün dolar, altın, euro ve mevduat faizi karşılığını hesaplayın.",
       "operatingSystem": "All",
       "applicationCategory": "FinanceApplication",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" },
-      "featureList": "Geçmişe dönük döviz, altın ve faiz getirisi hesaplama makinesi"
+      "featureList": "Geçmişe dönük döviz, altın ve faiz getirisi hesaplama"
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+        tailwind.config = { darkMode: 'class' };
+    </script>
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
-        .stat-card { background: white; border-radius: 20px; transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+        .dark body { background-color: #0f172a; }
+        .stat-card { background: white; border-radius: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #e2e8f0; }
+        .dark .stat-card { background: #1e293b; border-color: #334155; }
         .stat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
-        .filter-btn { transition: all 0.2s; }
-        .filter-btn.active { background-color: #0f172a; color: white; }
+        .dark .stat-card:hover { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); }
+        .filter-btn { transition: background-color 0.2s, color 0.2s; }
+        .filter-btn.filter-selected { background-color: #0f172a !important; color: white !important; }
+        .dark .filter-btn { color: #94a3b8; }
+        .dark .filter-btn:hover { background-color: #334155; color: #e2e8f0; }
+        .dark .filter-btn.filter-selected { background-color: #3b82f6 !important; color: white !important; }
         .alim-baslik { color: #dc2626; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 8px; }
+        .dark .alim-baslik { color: #fca5a5; }
         .alim-icerik { text-align: center; }
         .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.9); }
+        .dark .glass-card { background: rgba(30, 41, 59, 0.9); border-color: rgba(51, 65, 85, 0.8); }
+        .dark .glass-card h4 { color: #e2e8f0; }
+        .founder-note { background: #f8fafc; border-left: 4px solid #94a3b8; }
+        .dark .founder-note { background: rgba(30, 41, 59, 0.6); border-left-color: #64748b; }
+        .tarih-desktop { display: block; }
+        .tarih-mobile { display: none; }
+        .custom-tarih-dropdown { position: relative; display: flex; flex-direction: column; align-items: center; }
+        .custom-tarih-label { font-size: 11px; font-weight: 500; color: #64748b; margin-bottom: 4px; }
+        .dark .custom-tarih-label { color: #94a3b8; }
+        .custom-tarih-trigger { display: inline-flex; align-items: center; justify-content: center; gap: 2px; min-width: 52px; max-width: 64px; padding: 0.5rem 0.35rem; font-size: 14px; font-weight: 500; text-align: center; border-radius: 0.5rem; border: 1px solid #3b82f6; background: white; color: #1e293b; cursor: pointer; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
+        .dark .custom-tarih-trigger { background: #1e293b; border-color: #60a5fa; color: #f1f5f9; }
+        .custom-tarih-panel { position: absolute; top: 100%; left: 0; margin-top: 4px; min-width: 100%; max-height: 160px; overflow-y: auto; background: white; border: 1px solid #3b82f6; border-radius: 0.5rem; box-shadow: 0 4px 12px rgba(59,130,246,0.15); z-index: 1000; display: none; -webkit-overflow-scrolling: touch; }
+        .dark .custom-tarih-panel { background: #1e293b; border-color: #60a5fa; }
+        .custom-tarih-panel.open { display: block; }
+        .custom-tarih-option { padding: 0.5rem 0.75rem; font-size: 14px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+        .custom-tarih-option:hover, .custom-tarih-option:focus { background: #f1f5f9; }
+        .dark .custom-tarih-option:hover, .dark .custom-tarih-option:focus { background: #334155; }
+        .custom-tarih-option.selected { background: #3b82f6; color: white; }
+        .dark .custom-tarih-option.selected { background: #2563eb; }
+        .tarih-section { overflow: visible; }
+        @media (max-width: 767px) {
+          .tarih-desktop { display: none; }
+          .tarih-mobile { display: flex; gap: 0.35rem; align-items: flex-end; flex-wrap: nowrap; flex-shrink: 0; }
+          .tarih-mobile .custom-tarih-dropdown { flex-shrink: 0; }
+          .tarih-mobile .custom-tarih-trigger { min-width: 48px; max-width: 58px; padding: 0.4rem 0.25rem; font-size: 12px; flex-shrink: 0; }
+          .tarih-mobile .native-select-wrap { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; overflow: hidden; }
+        }
     </style>
 </head>
-<body class="antialiased text-slate-900">
+<body class="antialiased text-slate-900 bg-slate-50 dark:bg-slate-950 dark:text-slate-100">
+    <button id="dark-mode-btn" type="button" class="fixed top-4 right-4 z-50 p-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors text-xl" aria-label="Gece modu" title="Gece modu">🌙</button>
 
     <div class="max-w-7xl mx-auto px-4 py-12">
         <main>
             <header class="text-center mb-8">
-                <p class="text-2xl font-bold text-slate-800">NeGetirmis<span class="text-blue-600">.com</span></p>
-                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mt-2">Paranız Zamanda Yolculuk Yapsaydı Ne Getirmişti?</h1>
-                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-                    Eğer <input type="text" id="miktar" value="1.000.000" inputmode="numeric" maxlength="15" class="font-bold text-slate-900 w-40 text-center border-b-2 border-slate-300 bg-transparent" placeholder="1.000.000"> TL paranız olsaydı ve seçtiğiniz tarihte yatırsaydınız bugün ne kadar olurdu?
+                <p class="text-2xl font-bold text-slate-800 dark:text-slate-100">NeGetirmis<span class="text-blue-600 dark:text-blue-400">.com</span></p>
+                <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl mt-2">1 Milyon TL Zamanda Yolculuk Yapsaydı Bugün Ne Getirmişti?</h1>
+                <p class="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                    Eğer <input type="text" id="miktar" value="1.000.000" inputmode="numeric" maxlength="15" class="font-bold text-slate-900 dark:text-slate-100 w-40 text-center border-b-2 border-slate-300 dark:border-slate-500 bg-transparent" placeholder="1.000.000"> TL paranız olsaydı ve seçtiğiniz tarihte yatırsaydınız bugün ne kadar olurdu?
                 </p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-3 leading-relaxed max-w-2xl mx-auto">YASAL UYARI: Bu platform, geçmişe dönük veriler üzerinden hesaplama yapan bilgilendirme amaçlı bir araçtır. Geleceğe dair bir tahmin ya da yatırım tavsiyesi içermez. <a href="/kullanim-kosullari.html" class="underline hover:text-slate-600 dark:hover:text-slate-300">Yasal Uyarı ve Kullanım Şartları</a></p>
             </header>
 
-            <h2 id="hesaplama-panel" class="text-center text-lg font-semibold text-slate-700 mb-4">Hesaplama Paneli</h2>
-            <section aria-labelledby="hesaplama-panel" class="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
-                <div class="bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200 flex flex-wrap justify-center gap-1">
+            <h2 id="hesaplama-panel" class="text-center text-lg font-semibold text-slate-700 dark:text-slate-300 mb-4">Hesaplama Paneli</h2>
+            <section aria-labelledby="hesaplama-panel" class="tarih-section flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
+                <div class="bg-white dark:bg-slate-800 p-1.5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-600 flex flex-wrap justify-center gap-1">
                     <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold text-slate-500 hover:bg-slate-50" data-years="1">1 Yıl</button>
                     <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold text-slate-500 hover:bg-slate-50" data-years="3">3 Yıl</button>
-                    <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold active" data-years="5">5 Yıl</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold filter-selected" data-years="5">5 Yıl</button>
                     <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold text-slate-500 hover:bg-slate-50" data-years="10">10 Yıl</button>
+                    <button class="filter-btn px-6 py-2 rounded-xl text-sm font-semibold text-slate-500 hover:bg-slate-50" data-years="20">20 Yıl</button>
                 </div>
-                <div class="relative">
-                    <label for="tarih" class="absolute -top-2 left-2 text-[10px] font-medium text-slate-500 bg-white px-1 z-10">Tarihi belirleyin</label>
-                    <input type="date" id="tarih" class="bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none shadow-sm">
+                <div class="relative max-w-full">
+                    <label for="tarih" class="block text-[10px] font-medium text-slate-500 dark:text-slate-400 mb-1.5">Tarihi belirleyin</label>
+                    <input type="date" id="tarih" min="2006-01-01" max="" class="tarih-desktop bg-white dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600 border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none shadow-sm">
+                    <div class="tarih-mobile" aria-label="Tarih seçimi (mobil)">
+                        <div class="custom-tarih-dropdown" data-tarih-part="gun">
+                            <span class="custom-tarih-label">Gün</span>
+                            <div class="native-select-wrap"><select id="tarih-gun" aria-label="Tarih günü"></select></div>
+                            <button type="button" class="custom-tarih-trigger" aria-haspopup="listbox" aria-label="Tarih günü"><span class="custom-tarih-value">—</span> <svg class="w-4 h-4 inline-block ml-0.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                            <div class="custom-tarih-panel" role="listbox"></div>
+                        </div>
+                        <div class="custom-tarih-dropdown" data-tarih-part="ay">
+                            <span class="custom-tarih-label">Ay</span>
+                            <div class="native-select-wrap"><select id="tarih-ay" aria-label="Tarih ayı"></select></div>
+                            <button type="button" class="custom-tarih-trigger" aria-haspopup="listbox" aria-label="Tarih ayı"><span class="custom-tarih-value">—</span> <svg class="w-4 h-4 inline-block ml-0.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                            <div class="custom-tarih-panel" role="listbox"></div>
+                        </div>
+                        <div class="custom-tarih-dropdown" data-tarih-part="yil">
+                            <span class="custom-tarih-label">Yıl</span>
+                            <div class="native-select-wrap"><select id="tarih-yil" aria-label="Tarih yılı"></select></div>
+                            <button type="button" class="custom-tarih-trigger" aria-haspopup="listbox" aria-label="Tarih yılı"><span class="custom-tarih-value">—</span> <svg class="w-4 h-4 inline-block ml-0.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
+                            <div class="custom-tarih-panel" role="listbox"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <p class="text-[10px] text-slate-400 italic text-center mt-2 mb-4">⚠️ Bu platform geçmişe dönük verileri temel alan matematiksel bir simülasyon aracıdır. Geleceğe dair bir öngörü veya yatırım tavsiyesi niteliği taşımaz.</p>
+            <p class="text-xs text-slate-500 text-center mt-2 mb-4">20 yıllık arşiv (2006–bugün). Bu hesaplamalar 2005 öncesi TL (bol sıfırlı) dönemini kapsamaz. YASAL UYARI: Geleceğe dair tahmin veya yatırım tavsiyesi içermez. <a href="/kullanim-kosullari.html" class="underline hover:text-slate-600 dark:hover:text-slate-300">Yasal Uyarı ve Kullanım Şartları</a></p>
 
             <p id="hata-mesaji" class="text-red-600 text-center text-sm font-medium mb-4 hidden"></p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-yellow-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="investment-cards">
+                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-yellow-500 relative" data-investment="altin">
                     <div class="flex flex-col items-center text-center gap-2">
                         <span class="text-3xl" role="img" aria-label="Gram altın hesaplama ikonu">🟡</span>
-                        <h3 class="text-[16px] font-bold bg-yellow-100 text-yellow-700 px-2 py-1 rounded-md uppercase">Gram Altın</h3>
+                        <h3 class="text-[16px] font-bold bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300 px-2 py-1 rounded-md uppercase">Gram Altın</h3>
                     </div>
                     <div class="mt-8">
-                        <h4 class="text-sm font-medium text-slate-500">Bugünkü Değeri</h4>
-                        <p class="text-3xl font-bold mt-1 tracking-tight" id="altin_deger">—</p>
-                        <p class="text-emerald-600 text-sm font-bold mt-2 flex items-center" id="altin_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400" id="altin_fark">(+0 TL)</span></p>
+                        <h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Bugünkü Değeri</h4>
+                        <p class="text-3xl font-bold mt-1 tracking-tight text-slate-900 dark:text-slate-50" id="altin_deger">—</p>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-bold mt-2 flex items-center" id="altin_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400 dark:text-slate-500" id="altin_fark">(+0 TL)</span></p>
                     </div>
-                    <div class="mt-auto pt-6 border-t border-slate-100">
-                        <h4 class="alim-baslik">O gün için alınabilecekler</h4>
-                        <div class="alim-icerik text-[12px] text-slate-600">
-                            <p>Gram Altın: <span class="font-bold text-slate-900 text-[14px]" id="altin_gram">—</span> gram</p>
-                            <h4 class="mt-1 text-[11px] text-slate-500 font-normal">Çeyrek: <span class="font-extrabold text-slate-900 text-[13px]" id="altin_ceyrek_adet">—</span> Adet · Cumhuriyet: <span class="font-extrabold text-slate-900 text-[13px]" id="altin_cumhuriyet_adet">—</span> Adet</h4>
+                    <div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-600">
+                        <h4 class="alim-baslik"><span class="alim-baslik-dinamik">—</span></h4>
+                        <div class="alim-icerik text-[12px] text-slate-600 dark:text-slate-300">
+                            <p>Gram Altın: <span class="font-bold text-slate-900 dark:text-slate-100 text-[14px]" id="altin_gram">—</span> gram</p>
+                            <h4 class="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-normal">Çeyrek: <span class="font-extrabold text-slate-900 dark:text-slate-100 text-[13px]" id="altin_ceyrek_adet">—</span> Adet · Cumhuriyet: <span class="font-extrabold text-slate-900 dark:text-slate-100 text-[13px]" id="altin_cumhuriyet_adet">—</span> Adet</h4>
                         </div>
-                        <p class="text-[10px] text-slate-400 mt-2 pt-2 border-t border-slate-100">O günkü gram altın: <span class="font-semibold text-slate-600" id="altin_gunluk_fiyat">—</span> TL</p>
+                        <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-2 pt-2 border-t border-slate-100 dark:border-slate-600">O günkü gram altın: <span class="font-semibold text-slate-600 dark:text-slate-300" id="altin_gunluk_fiyat">—</span> TL</p>
+                        <button type="button" class="card-share-btn mt-3 w-full py-2 rounded-lg bg-yellow-100 dark:bg-yellow-900/40 hover:bg-yellow-200 dark:hover:bg-yellow-900/60 text-yellow-800 dark:text-yellow-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5" data-investment="altin" aria-label="Altın sonucunu paylaş"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg><span class="card-share-text">Paylaş</span></button>
                     </div>
                 </div>
 
-                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-blue-500">
+                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-blue-500 relative" data-investment="usd">
                     <div class="flex flex-col items-center text-center gap-2">
                         <span class="text-3xl" role="img" aria-label="Dolar kuru hesaplama ikonu">💵</span>
-                        <h3 class="text-[16px] font-bold bg-blue-100 text-blue-700 px-2 py-1 rounded-md uppercase">ABD Doları</h3>
+                        <h3 class="text-[16px] font-bold bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-md uppercase">ABD Doları</h3>
                     </div>
                     <div class="mt-8">
-                        <h4 class="text-sm font-medium text-slate-500">Bugünkü Değeri</h4>
-                        <p class="text-3xl font-bold mt-1 tracking-tight" id="usd_deger">—</p>
-                        <p class="text-emerald-600 text-sm font-bold mt-2 flex items-center" id="usd_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400" id="usd_fark">(+0 TL)</span></p>
+                        <h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Bugünkü Değeri</h4>
+                        <p class="text-3xl font-bold mt-1 tracking-tight text-slate-900 dark:text-slate-50" id="usd_deger">—</p>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-bold mt-2 flex items-center" id="usd_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400 dark:text-slate-500" id="usd_fark">(+0 TL)</span></p>
                     </div>
-                    <div class="mt-auto pt-6 border-t border-slate-100">
-                        <h4 class="alim-baslik">O gün için alınabilecekler</h4>
-                        <p class="alim-icerik text-[12px] font-bold text-slate-800"><span id="usd_alim">—</span> $</p>
-                        <p class="text-[10px] text-slate-400 mt-2 pt-2 border-t border-slate-100">O günkü USD kuru: <span class="font-semibold text-slate-600" id="usd_gunluk_kur">—</span> TL</p>
+                    <div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-600">
+                        <h4 class="alim-baslik"><span class="alim-baslik-dinamik">—</span></h4>
+                        <p class="alim-icerik text-[12px] font-bold text-slate-800 dark:text-slate-100"><span id="usd_alim">—</span> $</p>
+                        <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-2 pt-2 border-t border-slate-100 dark:border-slate-600">O günkü USD kuru: <span class="font-semibold text-slate-600 dark:text-slate-300" id="usd_gunluk_kur">—</span> TL</p>
+                        <button type="button" class="card-share-btn mt-3 w-full py-2 rounded-lg bg-blue-100 dark:bg-blue-900/40 hover:bg-blue-200 dark:hover:bg-blue-900/60 text-blue-800 dark:text-blue-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5" data-investment="usd" aria-label="Dolar sonucunu paylaş"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg><span class="card-share-text">Paylaş</span></button>
                     </div>
                 </div>
 
-                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-indigo-500">
+                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-indigo-500 relative" data-investment="eur">
                     <div class="flex flex-col items-center text-center gap-2">
                         <span class="text-3xl" role="img" aria-label="Euro kuru hesaplama ikonu">💶</span>
-                        <h3 class="text-[16px] font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded-md uppercase">Euro</h3>
+                        <h3 class="text-[16px] font-bold bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-md uppercase">Euro</h3>
                     </div>
                     <div class="mt-8">
-                        <h4 class="text-sm font-medium text-slate-500">Bugünkü Değeri</h4>
-                        <p class="text-3xl font-bold mt-1 tracking-tight" id="eur_deger">—</p>
-                        <p class="text-emerald-600 text-sm font-bold mt-2 flex items-center" id="eur_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400" id="eur_fark">(+0 TL)</span></p>
+                        <h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Bugünkü Değeri</h4>
+                        <p class="text-3xl font-bold mt-1 tracking-tight text-slate-900 dark:text-slate-50" id="eur_deger">—</p>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-bold mt-2 flex items-center" id="eur_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400 dark:text-slate-500" id="eur_fark">(+0 TL)</span></p>
                     </div>
-                    <div class="mt-auto pt-6 border-t border-slate-100">
-                        <h4 class="alim-baslik">O gün için alınabilecekler</h4>
-                        <p class="alim-icerik text-[12px] font-bold text-slate-800"><span id="eur_alim">—</span> €</p>
-                        <p class="text-[10px] text-slate-400 mt-2 pt-2 border-t border-slate-100">O günkü EUR kuru: <span class="font-semibold text-slate-600" id="eur_gunluk_kur">—</span> TL</p>
+                    <div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-600">
+                        <h4 class="alim-baslik"><span class="alim-baslik-dinamik">—</span></h4>
+                        <p class="alim-icerik text-[12px] font-bold text-slate-800 dark:text-slate-100"><span id="eur_alim">—</span> €</p>
+                        <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-2 pt-2 border-t border-slate-100 dark:border-slate-600">O günkü EUR kuru: <span class="font-semibold text-slate-600 dark:text-slate-300" id="eur_gunluk_kur">—</span> TL</p>
+                        <button type="button" class="card-share-btn mt-3 w-full py-2 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 hover:bg-indigo-200 dark:hover:bg-indigo-900/60 text-indigo-800 dark:text-indigo-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5" data-investment="eur" aria-label="Euro sonucunu paylaş"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg><span class="card-share-text">Paylaş</span></button>
                     </div>
                 </div>
 
-                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-red-500 bg-slate-50/50">
+                <div class="stat-card p-8 flex flex-col h-full border-t-4 border-red-500 bg-slate-50/50 dark:bg-slate-800/50 relative" data-investment="mevduat">
                     <div class="flex flex-col items-center text-center gap-2">
                         <span class="text-3xl" role="img" aria-label="Mevduat faizi hesaplama ikonu">🏦</span>
-                        <h3 class="text-[16px] font-bold bg-red-100 text-red-700 px-2 py-1 rounded-md uppercase">Mevduat Faizi</h3>
+                        <h3 class="text-[16px] font-bold bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 px-2 py-1 rounded-md uppercase">Mevduat Faizi</h3>
                     </div>
                     <div class="mt-8">
-                        <h4 class="text-sm font-medium text-slate-500">Bugünkü Değeri (Bileşik)</h4>
-                        <p class="text-3xl font-bold mt-1 tracking-tight" id="mevduat_deger">—</p>
-                        <p class="text-emerald-600 text-sm font-bold mt-2 flex items-center" id="mevduat_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400">(Net Getiri)</span></p>
+                        <h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Bugünkü Değeri (Bileşik)</h4>
+                        <p class="text-3xl font-bold mt-1 tracking-tight text-slate-900 dark:text-slate-50" id="mevduat_deger">—</p>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-bold mt-2 flex items-center" id="mevduat_degisim">▲ %0 <span class="ml-2 font-normal text-slate-400 dark:text-slate-500">(Net Getiri)</span></p>
                     </div>
-                    <div class="mt-auto pt-6 border-t border-slate-200">
-                        <h4 class="alim-baslik">O gün için alınabilecekler</h4>
-                        <p class="alim-icerik text-[12px] font-bold text-slate-800"><span id="mevduat_alim">—</span> TL mevduat</p>
-                        <p class="text-[10px] text-slate-400 mt-2 pt-2 border-t border-slate-200">O günkü yıllık faiz oranı: <span class="font-semibold text-slate-600" id="mevduat_gunluk_faiz">—</span> %</p>
+                    <div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-600">
+                        <h4 class="alim-baslik"><span class="alim-baslik-dinamik">—</span></h4>
+                        <p class="alim-icerik text-[12px] font-bold text-slate-800 dark:text-slate-100"><span id="mevduat_alim">—</span> TL mevduat</p>
+                        <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-2 pt-2 border-t border-slate-200 dark:border-slate-600">O günkü yıllık faiz oranı: <span class="font-semibold text-slate-600 dark:text-slate-300" id="mevduat_gunluk_faiz">—</span> %</p>
                         <h4 class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter italic mt-1">Bileşik faiz ve %15 stopaj dahildir.</h4>
+                        <button type="button" class="card-share-btn mt-3 w-full py-2 rounded-lg bg-red-100 dark:bg-red-900/40 hover:bg-red-200 dark:hover:bg-red-900/60 text-red-800 dark:text-red-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5" data-investment="mevduat" aria-label="Mevduat sonucunu paylaş"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg><span class="card-share-text">Paylaş</span></button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Woxsify Tanıtım -->
+            <div class="rounded-2xl border border-slate-200 dark:border-slate-600 bg-gradient-to-br from-indigo-50 to-slate-50 dark:from-indigo-950/30 dark:to-slate-900/50 p-6 mb-8 mx-auto max-w-2xl text-center">
+                <p class="text-slate-700 dark:text-slate-300 font-medium mb-4">Yatırım kararlarınızı ve finansal stratejilerinizi topluluğumuzla tartışın.</p>
+                <a href="https://woxsify.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-700 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white font-semibold text-sm transition-colors shadow-lg shadow-indigo-500/20" aria-label="Woxsify'da soru sor">Woxsify'da Soru Sor</a>
             </div>
 
             <!-- Paylaşım -->
@@ -159,54 +238,164 @@
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         X
                     </a>
-                    <button id="share-copy" type="button" class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold text-sm transition-colors" aria-label="Bağlantıyı kopyala">
+                    <button id="share-copy" type="button" class="flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 dark:hover:bg-slate-500 text-slate-800 dark:text-slate-100 font-semibold text-sm transition-colors" aria-label="Bağlantıyı kopyala">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
                         <span id="share-copy-text">Bağlantıyı Kopyala</span>
                     </button>
                 </div>
             </div>
 
+            <!-- Varlık Portföyü -->
+            <section class="mb-8" aria-labelledby="portfoy-baslik">
+                <h2 id="portfoy-baslik" class="text-center text-lg font-semibold text-slate-700 dark:text-slate-200 mb-2">Varlıklarım Bugün Ne Getirmiş?</h2>
+                <p class="text-center text-sm text-slate-600 dark:text-slate-400 mb-6">Geçmişte elinizde bulunan varlıkların bugünkü toplam TL karşılığını hesaplayın. Her yatırım için farklı alım tarihi girebilirsiniz.</p>
+                <div class="stat-card p-6 sm:p-8 mb-6 overflow-x-auto">
+                    <div class="min-w-[720px]">
+                        <div class="grid grid-cols-12 gap-2 py-2 border-b border-slate-200 dark:border-slate-600 text-xs font-medium text-slate-500 dark:text-slate-400 mb-2">
+                            <div class="col-span-2 text-center">Varlık</div>
+                            <div class="col-span-2 text-center">Alım Tarihi</div>
+                            <div class="col-span-2 text-center">Miktar</div>
+                            <div class="col-span-2 text-center">Maliyet</div>
+                            <div class="col-span-2 text-center">Bugünkü Değer</div>
+                            <div class="col-span-2 text-center">Getiri</div>
+                        </div>
+                        <div class="portfolio-row grid grid-cols-12 gap-2 items-center py-3 border-b border-slate-100 dark:border-slate-600">
+                            <div class="col-span-2 flex items-center gap-1 text-slate-900 dark:text-slate-100"><span role="img" aria-label="Altın">🟡</span> Altın (Cumhuriyet)</div>
+                            <div class="col-span-2"><input type="date" id="portfolioGoldDate" min="2006-01-01" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500 outline-none" aria-label="Altın alım tarihi"></div>
+                            <div class="col-span-2"><input type="number" id="portfolioGold" min="0" step="1" value="0" placeholder="Adet" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:ring-2 focus:ring-blue-500 outline-none" inputmode="numeric" aria-label="Altın adedi"></div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioGoldCost">—</div>
+                            <div class="col-span-2 text-sm font-medium text-center text-slate-900 dark:text-slate-100" id="portfolioGoldValue">—</div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioGoldReturn">—</div>
+                        </div>
+                        <div class="portfolio-row grid grid-cols-12 gap-2 items-center py-3 border-b border-slate-100 dark:border-slate-600">
+                            <div class="col-span-2 flex items-center gap-1 text-slate-900 dark:text-slate-100"><span role="img" aria-label="Gram altın">🟡</span> Gram Altın</div>
+                            <div class="col-span-2"><input type="date" id="portfolioGramAltinDate" min="2006-01-01" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500 outline-none" aria-label="Gram altın alım tarihi"></div>
+                            <div class="col-span-2"><input type="number" id="portfolioGramAltin" min="0" step="0.01" value="0" placeholder="gram" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:ring-2 focus:ring-blue-500 outline-none" inputmode="decimal" aria-label="Gram altın miktarı"></div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioGramAltinCost">—</div>
+                            <div class="col-span-2 text-sm font-medium text-center text-slate-900 dark:text-slate-100" id="portfolioGramAltinValue">—</div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioGramAltinReturn">—</div>
+                        </div>
+                        <div class="portfolio-row grid grid-cols-12 gap-2 items-center py-3 border-b border-slate-100 dark:border-slate-600">
+                            <div class="col-span-2 flex items-center gap-1 text-slate-900 dark:text-slate-100"><span role="img" aria-label="Dolar">💵</span> Dolar</div>
+                            <div class="col-span-2"><input type="date" id="portfolioUsdDate" min="2006-01-01" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500 outline-none" aria-label="Dolar alım tarihi"></div>
+                            <div class="col-span-2"><input type="number" id="portfolioUsd" min="0" step="1" value="0" placeholder="$" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:ring-2 focus:ring-blue-500 outline-none" inputmode="numeric" aria-label="Dolar miktarı"></div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioUsdCost">—</div>
+                            <div class="col-span-2 text-sm font-medium text-center text-slate-900 dark:text-slate-100" id="portfolioUsdValue">—</div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioUsdReturn">—</div>
+                        </div>
+                        <div class="portfolio-row grid grid-cols-12 gap-2 items-center py-3 border-b border-slate-100 dark:border-slate-600">
+                            <div class="col-span-2 flex items-center gap-1 text-slate-900 dark:text-slate-100"><span role="img" aria-label="Euro">💶</span> Euro</div>
+                            <div class="col-span-2"><input type="date" id="portfolioEurDate" min="2006-01-01" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500 outline-none" aria-label="Euro alım tarihi"></div>
+                            <div class="col-span-2"><input type="number" id="portfolioEur" min="0" step="1" value="0" placeholder="€" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:ring-2 focus:ring-blue-500 outline-none" inputmode="numeric" aria-label="Euro miktarı"></div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioEurCost">—</div>
+                            <div class="col-span-2 text-sm font-medium text-center text-slate-900 dark:text-slate-100" id="portfolioEurValue">—</div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioEurReturn">—</div>
+                        </div>
+                        <div class="portfolio-row grid grid-cols-12 gap-2 items-center py-3 border-b border-slate-100 dark:border-slate-600">
+                            <div class="col-span-2 flex items-center gap-1 text-slate-900 dark:text-slate-100"><span role="img" aria-label="Mevduat">🏦</span> Mevduat/Nakit</div>
+                            <div class="col-span-2"><input type="date" id="portfolioCashDate" min="2006-01-01" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500 outline-none" aria-label="Mevduat/Nakit alım tarihi"></div>
+                            <div class="col-span-2"><input type="text" id="portfolioCash" value="0" placeholder="TL" class="w-full px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:ring-2 focus:ring-blue-500 outline-none" inputmode="numeric" aria-label="Mevduat/Nakit TL miktarı"></div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioCashCost">—</div>
+                            <div class="col-span-2 text-sm font-medium text-center text-slate-900 dark:text-slate-100" id="portfolioCashValue">—</div>
+                            <div class="col-span-2 text-sm text-center text-slate-700 dark:text-slate-300" id="portfolioCashReturn">—</div>
+                        </div>
+                        <div class="grid grid-cols-12 gap-2 items-center py-4 mt-2 bg-slate-50 dark:bg-slate-700 rounded-xl px-3 font-bold text-slate-800 dark:text-slate-100">
+                            <div class="col-span-2">Toplam</div>
+                            <div class="col-span-2"></div>
+                            <div class="col-span-2"></div>
+                            <div class="col-span-2 text-sm text-center font-normal" id="portfolioTotalCost">—</div>
+                            <div class="col-span-2 text-sm text-center" id="portfolioTotal">—</div>
+                            <div class="col-span-2 text-sm text-center font-normal" id="portfolioTotalReturn">—</div>
+                        </div>
+                        <div class="mt-4 flex justify-end">
+                            <button id="share-portfolio" type="button" disabled class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 dark:hover:bg-slate-500 text-slate-800 dark:text-slate-100 font-medium text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed" aria-label="Portföyü paylaş"><span id="share-portfolio-text">Portföyü Paylaş</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Grafik -->
-            <section class="stat-card p-8 mb-8" aria-labelledby="grafik-baslik">
-                <h2 id="grafik-baslik" class="text-lg font-bold text-slate-800 mb-4">Değer Değişim Grafiği</h2>
-                <div class="relative h-72 sm:h-96">
+            <section class="stat-card p-6 sm:p-8 mb-8 opacity-90" aria-labelledby="grafik-baslik">
+                <h2 id="grafik-baslik" class="text-base font-bold text-slate-600 mb-3">Değer Değişim Grafiği</h2>
+                <div class="relative h-60 sm:h-80">
                     <canvas id="growthChart" aria-label="Dolar, altın, euro ve mevduat değer değişim grafiği"></canvas>
                 </div>
             </section>
         </main>
     </div>
 
-    <footer class="border-t border-slate-200 bg-slate-50/50 py-8 mt-8">
-        <div class="max-w-4xl mx-auto px-4">
-            <h3 class="text-sm font-semibold text-slate-600 mb-3">Yasal Uyarı</h3>
-            <p class="text-sm italic text-slate-500 leading-relaxed">
-                negetirmis.com üzerinde sunulan tüm veriler (döviz kurları, altın fiyatları, faiz oranları) Yahoo Finance ve TCMB arşivlerinden alınmaktadır. Verilerde gecikme veya teknik hatalar olabilir. Hesaplanan sonuçlar vergi, komisyon veya banka makas aralıklarını içermeyebilir. Bu site kesinlikle 6362 sayılı Sermaye Piyasası Kanunu kapsamında 'Yatırım Danışmanlığı' veya 'Yatırım Tavsiyesi' vermemektedir. Kararlarınızın sorumluluğu tamamen size aittir.
+    <!-- Popüler Zaman Yolculukları -->
+    <section class="py-8 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-4">Popüler Zaman Yolculukları</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/?tutar=100000&tarih=2018-06-01" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">2018'de 100.000 TL Ne Getirdi?</a>
+                <a href="/?tutar=500000&tarih=2021-01-01" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">2021 Başında 500.000 TL Ne Getirdi?</a>
+                <a href="/?tutar=1000000&tarih=2016-01-01" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">2016'da 1 Milyon TL Ne Getirdi?</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Görüş ve Öneriler CTA -->
+    <section class="py-8 px-4 border-t border-slate-200 dark:border-slate-700 bg-slate-100/80 dark:bg-slate-800/50">
+        <div class="max-w-2xl mx-auto text-center">
+            <h3 class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-2">Görüş ve Önerilerinizle Bize Yol Gösterin</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 italic mb-4">Sitede eksik gördüğünüz bir özellik veya yeni bir yatırım aracı fikriniz mi var? Sizin fikirlerinizle büyüyoruz.</p>
+            <p class="text-xs text-slate-500 dark:text-slate-500 mb-4">Geliştirmelerden haberdar olmak ve öneri sunmak için iletişim sayfamızdan bize yazabilirsiniz.</p>
+            <a href="/iletisim.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 dark:bg-slate-600 dark:hover:bg-slate-500 text-white font-medium text-sm transition-colors">Fikir Gönder</a>
+        </div>
+    </section>
+
+    <!-- Kurucu Notu -->
+    <section class="py-8 px-4 border-t border-slate-200 dark:border-slate-700 founder-note">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed italic">
+                Merhaba, ben bir Ziraat Mühendisi olarak verinin ve doğru analizlerin gücüne inanıyorum. negetirmis.com'u, geçmişteki ekonomik kararlarımızın bugün nerede olduğunu şeffaf, hızlı ve tamamen tarafsız bir şekilde görebilmemiz için bir hobi projesi olarak başlattım. Amacım, karmaşık finansal verileri herkesin anlayabileceği sadelikte sunmaktır.
             </p>
-            <p class="mt-4 text-xs text-slate-400 italic">
-                <button type="button" id="terms-link" class="underline hover:text-slate-600 transition-colors cursor-pointer">Kullanım Şartları</button>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 py-8 mt-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="mb-6 text-center">
+                <h4 class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">Projelerimiz</h4>
+                <a href="https://woxsify.com" target="_blank" rel="noopener noreferrer" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline font-medium">Woxsify.com</a>
+                <p class="text-xs text-slate-500 dark:text-slate-500 mt-1">Yeni nesil soru-cevap ve topluluk platformu.</p>
+            </div>
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6 text-sm">
+                <a href="/kunye.html" class="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Künye</a>
+                <a href="/yardim.html" class="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Yardım</a>
+                <a href="/iletisim.html" class="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">İletişim</a>
+                <a href="/kullanim-kosullari.html" class="text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Yasal Uyarı</a>
+            </nav>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center">
+                YASAL UYARI: Bu platform, geçmişe dönük veriler üzerinden hesaplama yapan bilgilendirme amaçlı bir araçtır. Geleceğe dair bir tahmin ya da yatırım tavsiyesi içermez. <a href="/kullanim-kosullari.html" class="underline hover:text-slate-600 dark:hover:text-slate-300">Yasal Uyarı ve Kullanım Şartları</a>
             </p>
         </div>
     </footer>
-
-    <!-- Kullanım Şartları Modal -->
-    <div id="terms-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-        <div class="fixed inset-0 bg-black/50" id="terms-overlay"></div>
-        <div class="fixed inset-x-4 top-1/2 -translate-y-1/2 max-h-[80vh] overflow-y-auto bg-white rounded-2xl shadow-xl border border-slate-200 max-w-2xl mx-auto p-6" role="dialog" aria-labelledby="terms-modal-title">
-            <h2 id="terms-modal-title" class="text-lg font-bold text-slate-800 mb-4">Yasal Uyarı ve Kullanım Şartları</h2>
-            <div class="text-sm italic text-slate-500 leading-relaxed space-y-4">
-                <p>negetirmis.com üzerinde sunulan tüm veriler (döviz kurları, altın fiyatları, faiz oranları) Yahoo Finance ve TCMB arşivlerinden alınmaktadır. Verilerde gecikme veya teknik hatalar olabilir.</p>
-                <p>Hesaplanan sonuçlar vergi, komisyon veya banka makas aralıklarını içermeyebilir. Bu site kesinlikle 6362 sayılı Sermaye Piyasası Kanunu kapsamında 'Yatırım Danışmanlığı' veya 'Yatırım Tavsiyesi' vermemektedir.</p>
-                <p>Bu platform geçmişe dönük verileri temel alan matematiksel bir simülasyon aracıdır. Geleceğe dair bir öngörü veya yatırım tavsiyesi niteliği taşımaz. Kararlarınızın sorumluluğu tamamen size aittir.</p>
-            </div>
-            <button type="button" id="terms-close" class="mt-6 px-4 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium text-sm transition-colors">Kapat</button>
-        </div>
-    </div>
 
     <script>
         window.SUPABASE_URL = "%%SUPABASE_URL%%";
         window.SUPABASE_ANON_KEY = "%%SUPABASE_ANON_KEY%%";
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        (function(){
+            const btn = document.getElementById('dark-mode-btn');
+            const isDark = () => document.documentElement.classList.contains('dark');
+            const setDark = (v) => {
+                document.documentElement.classList.toggle('dark', v);
+                btn.textContent = v ? '☀️' : '🌙';
+                btn.title = v ? 'Gündüz modu' : 'Gece modu';
+                try { localStorage.setItem('negetirmis-dark', v ? '1' : '0'); } catch (_) {}
+            };
+            if (btn) {
+                btn.addEventListener('click', () => setDark(!isDark()));
+                if (localStorage.getItem('negetirmis-dark') === '1') setDark(true);
+            }
+        })();
+    </script>
 </body>
 </html>
